@@ -1,0 +1,9 @@
+apply from: '../build-lib.gradle'
+
+task makeAar(type: Copy) {
+    from('build/outputs/aar/')
+    into("${project.rootDir}/dist/")
+    include('cll-lib-push-base-release.aar')
+}
+
+makeAar.dependsOn(build)
