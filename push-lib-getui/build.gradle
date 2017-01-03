@@ -1,11 +1,12 @@
 apply from: '../build-lib.gradle'
 dependencies {
-    provided project(':cll-lib-push-base')
+    provided project(':push-lib-base')
 }
+
 task makeAar(type: Copy) {
     from('build/outputs/aar/')
     into("${project.rootDir}/dist/")
-    include('cll-lib-push-umeng-release.aar')
+    include('cll-lib-push-getui-release.aar')
 }
 
 makeAar.dependsOn(build)

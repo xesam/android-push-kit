@@ -1,1 +1,1 @@
-include ':app', ':cll-lib-push-base', ':cll-lib-push-umeng', ':cll-lib-push-getui'
+include ':app', ':push-lib-base', ':push-lib-umeng', ':push-lib-getui'
