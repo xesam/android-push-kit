@@ -1,2 +1,2 @@
-# Android 推送集成辅助类
+# Android 推送集成辅助框架
 

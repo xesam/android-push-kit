@@ -1,1 +1,1 @@
-include ':app', ':push-lib-base', ':push-lib-umeng', ':push-lib-getui'
+include ':push-app-demo', ':push-lib-base', ':push-lib-umeng', ':push-lib-getui'
