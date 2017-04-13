@@ -7,9 +7,9 @@ import android.util.Log;
 
 import com.igexin.sdk.PushConsts;
 
-import dev.xesam.chelaile.push.api.ISdkPushProcessor;
-import dev.xesam.chelaile.push.api.PushHelper;
-import dev.xesam.chelaile.push.api.SimplePushMsg;
+import dev.xesam.android.push.kit.api.ISdkPushProcessor;
+import dev.xesam.android.push.kit.api.PushHelper;
+import dev.xesam.android.push.kit.api.SimplePushMsg;
 
 /**
  * 个推透传广播接收

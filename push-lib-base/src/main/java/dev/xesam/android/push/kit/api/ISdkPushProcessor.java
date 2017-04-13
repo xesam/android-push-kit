@@ -1,4 +1,4 @@
-package dev.xesam.chelaile.push.api;
+package dev.xesam.android.push.kit.api;
 
 import android.content.Context;
 

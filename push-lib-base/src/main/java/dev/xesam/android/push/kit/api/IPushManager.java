@@ -1,4 +1,4 @@
-package dev.xesam.chelaile.push.api;
+package dev.xesam.android.push.kit.api;
 
 /**
  * Created by xe on 16-10-24.

@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.igexin.sdk.PushManager;
 
-import dev.xesam.chelaile.push.api.IPushManager;
-import dev.xesam.chelaile.push.api.PushSdkType;
+import dev.xesam.android.push.kit.api.IPushManager;
+import dev.xesam.android.push.kit.api.PushSdkType;
 
 /**
  * 个推管理

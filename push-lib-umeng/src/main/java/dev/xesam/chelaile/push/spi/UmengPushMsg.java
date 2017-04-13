@@ -8,7 +8,7 @@ import com.umeng.message.entity.UMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import dev.xesam.chelaile.push.api.PushMsg;
+import dev.xesam.android.push.kit.api.PushMsg;
 
 /**
  * Created by xe on 16-10-24.

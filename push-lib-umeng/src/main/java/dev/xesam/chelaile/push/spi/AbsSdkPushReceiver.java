@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import dev.xesam.chelaile.push.api.ISdkPushProcessor;
-import dev.xesam.chelaile.push.api.PushHelper;
+import dev.xesam.android.push.kit.api.ISdkPushProcessor;
+import dev.xesam.android.push.kit.api.PushHelper;
 
 /**
  * 友盟透传广播接收

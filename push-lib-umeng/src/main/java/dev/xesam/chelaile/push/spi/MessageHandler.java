@@ -5,7 +5,7 @@ import android.content.Context;
 import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.entity.UMessage;
 
-import dev.xesam.chelaile.push.api.PushHelper;
+import dev.xesam.android.push.kit.api.PushHelper;
 
 /**
  * 自定义的消息处理

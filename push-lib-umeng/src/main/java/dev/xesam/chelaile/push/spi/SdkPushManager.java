@@ -13,9 +13,9 @@ import org.android.agoo.xiaomi.MiPushRegistar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import dev.xesam.chelaile.push.api.IPushManager;
-import dev.xesam.chelaile.push.api.PushHelper;
-import dev.xesam.chelaile.push.api.PushSdkType;
+import dev.xesam.android.push.kit.api.IPushManager;
+import dev.xesam.android.push.kit.api.PushHelper;
+import dev.xesam.android.push.kit.api.PushSdkType;
 
 /**
  * 友盟推送管理
