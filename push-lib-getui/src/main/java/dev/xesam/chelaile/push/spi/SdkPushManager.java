@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import com.igexin.sdk.PushManager;
 
 import dev.xesam.android.push.kit.api.IPushManager;
-import dev.xesam.android.push.kit.api.PushSdkType;
 import dev.xesam.android.push.kit.api.PushSource;
 
 /**
@@ -23,11 +22,6 @@ public final class SdkPushManager implements IPushManager {
 
     public SdkPushManager(Context context) {
         mContext = context.getApplicationContext();
-    }
-
-    @Override
-    public PushSdkType getPushSdkType() {
-        return PushSdkType.GETUI;
     }
 
     @NonNull

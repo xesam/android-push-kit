@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
  */
 
 public interface IPushManager {
-    @Deprecated
-    PushSdkType getPushSdkType();
 
     @NonNull
     PushSource getPushSource();

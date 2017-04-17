@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import dev.xesam.android.push.kit.api.IPushManager;
 import dev.xesam.android.push.kit.api.PushHelper;
-import dev.xesam.android.push.kit.api.PushSdkType;
 import dev.xesam.android.push.kit.api.PushSource;
 
 /**
@@ -33,11 +32,6 @@ public final class SdkPushManager implements IPushManager {
 
     public SdkPushManager(Context context) {
         mContext = context.getApplicationContext();
-    }
-
-    @Override
-    public PushSdkType getPushSdkType() {
-        return PushSdkType.UMENG;
     }
 
     @NonNull

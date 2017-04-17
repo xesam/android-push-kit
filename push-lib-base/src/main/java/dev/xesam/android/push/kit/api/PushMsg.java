@@ -8,7 +8,12 @@ import android.support.annotation.Nullable;
  * Created by xe on 16-10-24.
  */
 
-public abstract class PushMsg implements Parcelable {
+public abstract class PushMsg extends PushRaw implements Parcelable {
+
+    @Override
+    public int getType() {
+        return PushRaw.TYPE_MSG;
+    }
 
     /**
      * 获取SDK的数据

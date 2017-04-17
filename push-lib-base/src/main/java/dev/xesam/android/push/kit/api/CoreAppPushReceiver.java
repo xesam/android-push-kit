@@ -10,7 +10,7 @@ import android.os.Parcelable;
  * 应用内消息接收器
  * Created by xe on 16-10-26.
  */
-public abstract class AbsAppPushReceiver extends BroadcastReceiver {
+public abstract class CoreAppPushReceiver extends BroadcastReceiver {
 
     private static String EXTRA_APP_PUSH_MSG = "dev.xesam.push.extra.app_msg";
 
