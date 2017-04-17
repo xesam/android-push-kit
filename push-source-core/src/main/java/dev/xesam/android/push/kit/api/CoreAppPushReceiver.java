@@ -11,6 +11,7 @@ import android.os.Parcelable;
  * Created by xe on 16-10-26.
  */
 public abstract class CoreAppPushReceiver extends BroadcastReceiver {
+    public static final int DEFAULT_PRIORITY = 10;
 
     private static String EXTRA_APP_PUSH_MSG = "dev.xesam.push.extra.app_msg";
 
@@ -18,8 +19,17 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
         return data.getParcelableExtra(EXTRA_APP_PUSH_MSG);
     }
 
-    public static <T extends Parcelable> void setAppPushMsg(Intent data, T msg) {
-        data.putExtra(EXTRA_APP_PUSH_MSG, msg);
+    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, Intent intent, T msg) {
+        broadcastAppPushMsg(context, intent, msg, true);
+    }
+
+    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, Intent intent, T msg, boolean ordered) {
+        intent.putExtra(EXTRA_APP_PUSH_MSG, msg);
+        if (ordered) {
+            context.sendOrderedBroadcast(intent, null);
+        } else {
+            context.sendBroadcast(intent);
+        }
     }
 
     private boolean mDynamicRegistered = false;
@@ -29,8 +39,9 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
     protected abstract int getPriority();
 
     @Override
-    public void onReceive(Context context, Intent intent) {
-        if (onHandlerProcess(context, intent)) {
+    public final void onReceive(Context context, Intent intent) {
+        final boolean consumed = onHandleReceive(context, intent);
+        if (consumed) {
             abortBroadcast();//终止广播传递
         }
     }
@@ -38,7 +49,7 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
     /**
      * 是否终止广播，如果返回 true，则终止
      */
-    protected abstract boolean onHandlerProcess(Context context, Intent intent);
+    protected abstract boolean onHandleReceive(Context context, Intent intent);
 
     public void register(Context context) {
         if (!mDynamicRegistered) {
@@ -50,7 +61,7 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
     }
 
     public void unregister(Context context) {
-        if (mDynamicRegistered) {
+        if (!mDynamicRegistered) {
             context.unregisterReceiver(this);
             mDynamicRegistered = false;
         }
