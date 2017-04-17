@@ -1,11 +1,13 @@
 package dev.xesam.chelaile.push.spi;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.igexin.sdk.PushManager;
 
 import dev.xesam.android.push.kit.api.IPushManager;
 import dev.xesam.android.push.kit.api.PushSdkType;
+import dev.xesam.android.push.kit.api.PushSource;
 
 /**
  * 个推管理
@@ -15,6 +17,7 @@ import dev.xesam.android.push.kit.api.PushSdkType;
 public final class SdkPushManager implements IPushManager {
 
     private static String CACHE_LOG_TOKEN = "a1";
+    private static PushSource sSource = new GeTuiPushSource();
 
     private Context mContext;
 
@@ -25,6 +28,12 @@ public final class SdkPushManager implements IPushManager {
     @Override
     public PushSdkType getPushSdkType() {
         return PushSdkType.GETUI;
+    }
+
+    @NonNull
+    @Override
+    public PushSource getPushSource() {
+        return sSource;
     }
 
     @Override

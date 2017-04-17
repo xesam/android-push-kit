@@ -1,14 +1,17 @@
 package dev.xesam.android.push.kit.api;
 
+import android.support.annotation.NonNull;
+
 /**
  * Created by xe on 16-10-24.
  */
 
 public interface IPushManager {
-    /**
-     * 获取 SDK 来源
-     */
+    @Deprecated
     PushSdkType getPushSdkType();
+
+    @NonNull
+    PushSource getPushSource();
 
     void setDebugToken(String token);
 

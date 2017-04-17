@@ -1,6 +1,7 @@
 package dev.xesam.chelaile.push.spi;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.umeng.message.IUmengCallback;
@@ -16,6 +17,7 @@ import org.json.JSONObject;
 import dev.xesam.android.push.kit.api.IPushManager;
 import dev.xesam.android.push.kit.api.PushHelper;
 import dev.xesam.android.push.kit.api.PushSdkType;
+import dev.xesam.android.push.kit.api.PushSource;
 
 /**
  * 友盟推送管理
@@ -25,6 +27,7 @@ import dev.xesam.android.push.kit.api.PushSdkType;
 public final class SdkPushManager implements IPushManager {
 
     private static String CACHE_LOG_TOKEN = "a1";
+    private static PushSource sSource = new UmengPushSource();
 
     private Context mContext;
 
@@ -35,6 +38,12 @@ public final class SdkPushManager implements IPushManager {
     @Override
     public PushSdkType getPushSdkType() {
         return PushSdkType.UMENG;
+    }
+
+    @NonNull
+    @Override
+    public PushSource getPushSource() {
+        return sSource;
     }
 
     @Override
