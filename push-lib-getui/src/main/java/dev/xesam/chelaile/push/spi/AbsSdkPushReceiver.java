@@ -7,7 +7,6 @@ import android.util.Log;
 import com.igexin.sdk.PushConsts;
 
 import dev.xesam.android.push.kit.api.CoreSdkPushReceiver;
-import dev.xesam.android.push.kit.api.ISdkPushProcessor;
 import dev.xesam.android.push.kit.api.PushMsg;
 import dev.xesam.android.push.kit.api.PushToken;
 import dev.xesam.android.push.kit.api.SimplePushMsg;
@@ -15,7 +14,7 @@ import dev.xesam.android.push.kit.api.SimplePushMsg;
 /**
  * 个推透传广播接收
  */
-public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver implements ISdkPushProcessor {
+public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver {
     @Override
     public final void onReceive(Context context, Intent intent) {
 

@@ -2,7 +2,6 @@ package dev.xesam.android.push.kit;
 
 import android.content.Context;
 
-import dev.xesam.android.push.kit.api.PushMsg;
 import dev.xesam.android.push.kit.api.PushRaw;
 import dev.xesam.chelaile.push.spi.AbsSdkPushReceiver;
 
@@ -11,15 +10,6 @@ import dev.xesam.chelaile.push.spi.AbsSdkPushReceiver;
  */
 
 public class SdkPushReceiverImpl extends AbsSdkPushReceiver {
-    @Override
-    public void onReceivePushToken(Context context, String token) {
-
-    }
-
-    @Override
-    public void onReceivePushMsg(Context context, PushMsg pushMsg) {
-
-    }
 
     @Override
     public boolean checkPushRaw(Context context, PushRaw data) {
