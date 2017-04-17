@@ -20,6 +20,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".ManifestAppPushReceiverImpl">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
