@@ -5,6 +5,7 @@ package dev.xesam.android.push.kit.api;
  * <p>
  * Created by xesamguo@gmail.com on 16-4-7.
  */
+@Deprecated
 public enum PushSdkType {
     GETUI,
     UMENG,
