@@ -7,6 +7,7 @@ import android.content.Context;
  * Created by xe on 16-10-24.
  */
 
+@Deprecated
 public interface ISdkPushProcessor {
     /**
      * 接收到推送Token

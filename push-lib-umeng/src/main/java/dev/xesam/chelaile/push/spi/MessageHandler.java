@@ -20,6 +20,6 @@ final class MessageHandler extends UmengMessageHandler {
         if (uMessage == null || uMessage.getRaw() == null) {
             return;
         }
-        PushHelper.broadcastReceiveMessage(context, new UmengPushMsg(uMessage));
+        PushHelper.broadcastSdk(context, new UmengPushMsg(uMessage));
     }
 }

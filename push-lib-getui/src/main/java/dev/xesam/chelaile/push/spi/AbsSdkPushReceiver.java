@@ -1,22 +1,23 @@
 package dev.xesam.chelaile.push.spi;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
 import com.igexin.sdk.PushConsts;
 
+import dev.xesam.android.push.kit.api.CoreSdkPushReceiver;
 import dev.xesam.android.push.kit.api.ISdkPushProcessor;
-import dev.xesam.android.push.kit.api.PushHelper;
+import dev.xesam.android.push.kit.api.PushMsg;
+import dev.xesam.android.push.kit.api.PushToken;
 import dev.xesam.android.push.kit.api.SimplePushMsg;
 
 /**
  * 个推透传广播接收
  */
-public abstract class AbsSdkPushReceiver extends BroadcastReceiver implements ISdkPushProcessor {
+public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver implements ISdkPushProcessor {
     @Override
-    public final void onReceive(final Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
 
         int pushCmd = intent.getIntExtra(PushConsts.CMD_ACTION, -1);
 
@@ -24,8 +25,9 @@ public abstract class AbsSdkPushReceiver extends BroadcastReceiver implements IS
             case PushConsts.GET_CLIENTID: {
                 String clientId = intent.getExtras().getString("clientid");
                 Log.d("SdkPushManager Token", "clientId:" + clientId);
-                if (PushHelper.isTokenAvailable(clientId)) {
-                    onReceivePushToken(context, clientId);
+                PushToken token = new PushToken(clientId);
+                if (checkPushRaw(context, token)) {
+                    onReceive(context, token);
                 }
                 break;
             }
@@ -34,7 +36,10 @@ public abstract class AbsSdkPushReceiver extends BroadcastReceiver implements IS
                 if (payload != null) {
                     String msgContent = new String(payload);
                     Log.d("SdkPushManager PushMsg", msgContent);
-                    onReceivePushMsg(context, new SimplePushMsg(msgContent));
+                    PushMsg msg = new SimplePushMsg(msgContent);
+                    if (checkPushRaw(context, msg)) {
+                        onReceive(context, msg);
+                    }
                 }
                 break;
             }
