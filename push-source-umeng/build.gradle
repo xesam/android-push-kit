@@ -1,6 +1,6 @@
 apply from: '../build-lib.gradle'
 dependencies {
-    provided project(':push-lib-base')
+    provided project(':push-source-core')
 }
 task makeAar(type: Copy) {
     from('build/outputs/aar/')
