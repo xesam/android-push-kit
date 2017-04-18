@@ -23,6 +23,6 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
 
     @Override
     protected boolean onHandleReceive(Context context, Intent intent) {
-        return false;
+        return true;
     }
 }
