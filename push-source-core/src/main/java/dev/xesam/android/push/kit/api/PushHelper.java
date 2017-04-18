@@ -32,12 +32,12 @@ public final class PushHelper {
         context.sendBroadcast(intent);
     }
 
-    public static void checkReceiveSdk(Context context, Intent intent, CoreSdkPushReceiver processor) {
+    public static void checkReceiveSdk(Context context, Intent intent, CoreSdkPushReceiver receiver) {
         final String action = intent.getAction();
         if (getReceiveSdkAction(context).equals(action)) {
-            PushRaw token = intent.getParcelableExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD);
-            if (processor.checkPushRaw(context, token)) {
-                processor.onReceive(context, token);
+            PushRaw raw = intent.getParcelableExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD);
+            if (receiver.checkPushRaw(context, raw)) {
+                receiver.onReceive(context, raw);
             }
         }
     }
