@@ -1,4 +1,4 @@
-package dev.xesam.android.push.kit;
+package dev.xesam.android.push.kit.push;
 
 import android.content.Context;
 
