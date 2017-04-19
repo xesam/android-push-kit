@@ -1,4 +1,4 @@
-package com.github.xesam.push_source_mock;
+package dev.xesam.chelaile.push.spi;
 
 import android.content.Context;
 import android.content.Intent;
