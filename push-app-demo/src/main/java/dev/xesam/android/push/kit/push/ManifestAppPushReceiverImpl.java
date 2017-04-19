@@ -25,4 +25,8 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
     protected boolean onHandleReceive(Context context, Intent intent) {
         return true;
     }
+
+    private void postNotification() {
+
+    }
 }
