@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushRaw pushRaw = new PushToken("a-mock-token");
-                PushHelper.broadcastSdk(getApplicationContext(), pushRaw);
+                PushHelper.broadcastSdk(getApplicationContext(), pushRaw, "dev.xesam.android.push.kit");
             }
         });
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushRaw pushRaw = new SimplePushMsg("{\"type\":\"a\",\"name\":\"noticeA\"}");
-                PushHelper.broadcastSdk(getApplicationContext(), pushRaw);
+                PushHelper.broadcastSdk(getApplicationContext(), pushRaw, "dev.xesam.android.push.kit");
             }
         });
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushRaw pushRaw = new SimplePushMsg("{\"type\":\"b\",\"name\":\"noticeB\"}");
-                PushHelper.broadcastSdk(getApplicationContext(), pushRaw);
+                PushHelper.broadcastSdk(getApplicationContext(), pushRaw, "dev.xesam.android.push.kit");
             }
         });
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushRaw pushRaw = new SimplePushMsg("{\"type\":\"c\",\"name\":\"noticeC\"}");
-                PushHelper.broadcastSdk(getApplicationContext(), pushRaw);
+                PushHelper.broadcastSdk(getApplicationContext(), pushRaw, "dev.xesam.android.push.kit");
             }
         });
     }

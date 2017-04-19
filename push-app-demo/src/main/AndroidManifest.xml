@@ -12,7 +12,7 @@
             android:name=".push.SdkPushReceiverImpl"
             android:exported="true">
             <intent-filter>
-                <action android:name="INTENT_EXTRA_PUSH_SDK_PAYLOAD.dev.xesam.android.push.kit" />
+                <action android:name="dev.xesam.push.action.sdk_payload.dev.xesam.android.push.kit" />
             </intent-filter>
         </receiver>
         <receiver android:name=".push.ManifestAppPushReceiverImpl">

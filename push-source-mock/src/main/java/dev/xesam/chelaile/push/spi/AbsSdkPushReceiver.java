@@ -14,9 +14,9 @@ public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver {
     public final void onReceive(Context context, Intent intent) {
         PushHelper.checkReceiveSdk(context, intent, this);
 //        final String action = intent.getAction();
-//        if (PushHelper.getPackagePushConfig(context, Constant.ACTION_TOKEN).equals(action)) {
+//        if (PushHelper.getPackageConfig(context, Constant.ACTION_TOKEN).equals(action)) {
 //            PushHelper.broadcastSdk();
-//        } else if (PushHelper.getPackagePushConfig(context, Constant.ACTION_MESSAGE).equals(action)) {
+//        } else if (PushHelper.getPackageConfig(context, Constant.ACTION_MESSAGE).equals(action)) {
 //
 //        }
     }
