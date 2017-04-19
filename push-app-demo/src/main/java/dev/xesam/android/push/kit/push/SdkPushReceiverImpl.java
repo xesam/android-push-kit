@@ -1,6 +1,7 @@
 package dev.xesam.android.push.kit.push;
 
 import android.content.Context;
+import android.util.Log;
 
 import dev.xesam.android.push.kit.api.PushMsg;
 import dev.xesam.android.push.kit.api.PushRaw;
@@ -12,6 +13,8 @@ import dev.xesam.chelaile.push.spi.AbsSdkPushReceiver;
  */
 
 public class SdkPushReceiverImpl extends AbsSdkPushReceiver {
+
+    public static final String TAG = "SdkPushReceiverImpl";
 
     @Override
     public boolean checkPushRaw(Context context, PushRaw data) {
@@ -29,9 +32,11 @@ public class SdkPushReceiverImpl extends AbsSdkPushReceiver {
 
     private void onReceiveToken(PushToken token) {
         // TODO: 17-4-18
+        Log.w(TAG, token.getToken());
     }
 
     private void onReceiveMsg(PushMsg msg) {
         // TODO: 17-4-18
+        Log.w(TAG, msg.getRawPayload());
     }
 }
