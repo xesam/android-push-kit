@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 
 /**
@@ -23,6 +24,10 @@ public class AppPushReceiverImpl extends CoreAppPushReceiver {
 
     @Override
     protected boolean onHandleReceive(Context context, Intent intent) {
+        return false;
+    }
+
+    protected boolean onHandleReceive(Context context, AppPushMsg msg) {
         return false;
     }
 }

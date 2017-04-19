@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 
 /**
  * 解析推送消息
  */
 public final class PushHelper {
+
+    public static final String TAG = "PushHelper";
 
     /**
      * @Warning 收到推送消息，注意同步修改 AndroidManifest.xml 里面对应的值
@@ -43,6 +46,8 @@ public final class PushHelper {
             PushRaw raw = intent.getParcelableExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD);
             if (receiver.checkPushRaw(context, raw)) {
                 receiver.onReceive(context, raw);
+            } else {
+                Log.w(TAG, "checkPushRaw is false");
             }
         }
     }

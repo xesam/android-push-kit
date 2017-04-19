@@ -15,6 +15,8 @@ import dev.xesam.android.push.kit.api.SimplePushMsg;
  * 个推透传广播接收
  */
 public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver {
+    public static final String TAG = "AbsSdkPushReceiver";
+
     @Override
     public final void onReceive(Context context, Intent intent) {
 
@@ -27,6 +29,8 @@ public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver {
                 PushToken token = new PushToken(clientId);
                 if (checkPushRaw(context, token)) {
                     onReceive(context, token);
+                } else {
+                    Log.w(TAG, "checkPushRaw is false");
                 }
                 break;
             }
@@ -38,6 +42,8 @@ public abstract class AbsSdkPushReceiver extends CoreSdkPushReceiver {
                     PushMsg msg = new SimplePushMsg(msgContent);
                     if (checkPushRaw(context, msg)) {
                         onReceive(context, msg);
+                    } else {
+                        Log.w(TAG, "checkPushRaw is false");
                     }
                 }
                 break;
