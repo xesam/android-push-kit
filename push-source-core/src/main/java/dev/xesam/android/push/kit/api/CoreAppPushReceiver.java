@@ -19,11 +19,12 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
         return data.getParcelableExtra(EXTRA_APP_PUSH_MSG);
     }
 
-    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, Intent intent, T msg) {
-        broadcastAppPushMsg(context, intent, msg, true);
+    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, String action, T msg) {
+        broadcastAppPushMsg(context, action, msg, true);
     }
 
-    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, Intent intent, T msg, boolean ordered) {
+    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, String action, T msg, boolean ordered) {
+        Intent intent = new Intent(action);
         intent.putExtra(EXTRA_APP_PUSH_MSG, msg);
         if (ordered) {
             context.sendOrderedBroadcast(intent, null);
@@ -38,6 +39,11 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
 
     protected abstract int getPriority();
 
+    /**
+     * 是否终止广播，如果返回 true，则终止
+     */
+    protected abstract boolean onHandleReceive(Context context, Intent intent);
+
     @Override
     public final void onReceive(Context context, Intent intent) {
         final boolean consumed = onHandleReceive(context, intent);
@@ -46,22 +52,17 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
         }
     }
 
-    /**
-     * 是否终止广播，如果返回 true，则终止
-     */
-    protected abstract boolean onHandleReceive(Context context, Intent intent);
-
     public void register(Context context) {
         if (!mDynamicRegistered) {
             IntentFilter intentFilter = getIntentFilter(context);
             intentFilter.setPriority(getPriority());
-            context.registerReceiver(this, getIntentFilter(context));
+            context.registerReceiver(this, intentFilter);
             mDynamicRegistered = true;
         }
     }
 
     public void unregister(Context context) {
-        if (!mDynamicRegistered) {
+        if (mDynamicRegistered) {
             context.unregisterReceiver(this);
             mDynamicRegistered = false;
         }

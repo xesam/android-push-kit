@@ -3,8 +3,9 @@ package dev.xesam.android.push.kit.push;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Parcelable;
+import android.util.Log;
 
-import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 
 /**
@@ -12,22 +13,27 @@ import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
  */
 
 public class AppPushReceiverImpl extends CoreAppPushReceiver {
+    public static final String TAG = "AppPushReceiverImpl";
+
     @Override
     protected IntentFilter getIntentFilter(Context context) {
-        return null;
+        return new IntentFilter(DemoConstant.APP_RECEIVER_ACTION);
     }
 
     @Override
     protected int getPriority() {
-        return DEFAULT_PRIORITY;
+        return DEFAULT_PRIORITY + 100;
     }
 
     @Override
     protected boolean onHandleReceive(Context context, Intent intent) {
+        Log.w(TAG, "onHandleReceive");
+        Parcelable data = CoreAppPushReceiver.getAppPushMsg(intent);
+        Log.w(TAG, data.toString());
         return false;
     }
 
-    protected boolean onHandleReceive(Context context, AppPushMsg msg) {
-        return false;
-    }
+//    protected boolean onHandleReceive(Context context, AppPushMsg msg) {
+//        return false;
+//    }
 }

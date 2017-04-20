@@ -3,6 +3,8 @@ package dev.xesam.android.push.kit.push;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Parcelable;
+import android.util.Log;
 
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 
@@ -11,6 +13,8 @@ import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
  */
 
 public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
+    public static final String TAG = "ManifestAppPushReceiver";
+
     @Override
     protected IntentFilter getIntentFilter(Context context) {
         return null;
@@ -23,6 +27,9 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
 
     @Override
     protected boolean onHandleReceive(Context context, Intent intent) {
+        Log.w(TAG, "onHandleReceive");
+        Parcelable data = CoreAppPushReceiver.getAppPushMsg(intent);
+        Log.w(TAG, data.toString());
         return true;
     }
 
