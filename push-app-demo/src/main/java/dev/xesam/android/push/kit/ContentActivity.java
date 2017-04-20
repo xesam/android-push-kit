@@ -3,19 +3,26 @@ package dev.xesam.android.push.kit;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
+import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 import dev.xesam.android.push.kit.push.AppPushReceiverImpl;
 
 public class ContentActivity extends AppCompatActivity {
 
-    public static final String TAG = "ContentActivity";
+    public final String TAG = "ContentActivity";
+
+    private TextView vContent;
 
     private AppPushReceiverImpl appPushReceiver = new AppPushReceiverImpl() {
         @Override
         protected boolean onHandleReceive(Context context, Intent intent) {
             Log.d(TAG, "onHandleReceive");
+            Parcelable data = CoreAppPushReceiver.getAppPushMsg(intent);
+            vContent.setText(data.toString());
             return true;
         }
     };
@@ -24,6 +31,7 @@ public class ContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+        vContent = (TextView) findViewById(R.id.content);
         appPushReceiver.register(this);
     }
 

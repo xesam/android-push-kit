@@ -13,7 +13,7 @@ import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
  */
 
 public class AppPushReceiverImpl extends CoreAppPushReceiver {
-    public static final String TAG = "AppPushReceiverImpl";
+    private final String TAG = "AppPushReceiverImpl";
 
     @Override
     protected IntentFilter getIntentFilter(Context context) {
