@@ -3,7 +3,6 @@ package dev.xesam.android.push.kit.push;
 import android.content.Context;
 import android.util.Log;
 
-import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 import dev.xesam.android.push.kit.api.PushMsg;
 import dev.xesam.android.push.kit.api.PushRaw;
 import dev.xesam.android.push.kit.api.PushToken;
@@ -34,12 +33,12 @@ public class SdkPushReceiverImpl extends AbsSdkPushReceiver {
     private void onReceiveToken(Context context, PushToken token) {
         // TODO: 17-4-18
         Log.w(TAG, token.getToken());
-        CoreAppPushReceiver.broadcastAppPushMsg(context, DemoConstant.APP_RECEIVER_ACTION, token);
+//        CoreAppPushReceiver.broadcastAppPushMsg(context, DemoConstant.APP_RECEIVER_ACTION, token);
     }
 
     private void onReceiveMsg(Context context, PushMsg msg) {
         // TODO: 17-4-18
         Log.w(TAG, msg.getRawPayload());
-        CoreAppPushReceiver.broadcastAppPushMsg(context, DemoConstant.APP_RECEIVER_ACTION, msg);
+//        CoreAppPushReceiver.broadcastAppPushMsg(context, DemoConstant.APP_RECEIVER_ACTION, msg);
     }
 }

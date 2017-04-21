@@ -19,11 +19,11 @@ public abstract class CoreAppPushReceiver extends BroadcastReceiver {
         return data.getParcelableExtra(EXTRA_APP_PUSH_MSG);
     }
 
-    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, String action, T msg) {
+    public static <T extends AppPushMsg> void broadcastAppPushMsg(Context context, String action, T msg) {
         broadcastAppPushMsg(context, action, msg, true);
     }
 
-    public static <T extends Parcelable> void broadcastAppPushMsg(Context context, String action, T msg, boolean ordered) {
+    public static <T extends AppPushMsg> void broadcastAppPushMsg(Context context, String action, T msg, boolean ordered) {
         Intent intent = new Intent(action);
         intent.putExtra(EXTRA_APP_PUSH_MSG, msg);
         if (ordered) {
