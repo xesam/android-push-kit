@@ -1,11 +1,14 @@
 package dev.xesam.android.push.kit.push;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Parcelable;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import dev.xesam.android.push.kit.R;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 
 /**
@@ -33,7 +36,14 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
         return true;
     }
 
-    private void postNotification() {
+    private void postNotification(Context context) {
+        Notification notification = new NotificationCompat.Builder(context)
+                .setContentTitle("this is title")
+                .setContentText("this is content")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentIntent(null)
+                .setDeleteIntent(null)
+                .build();
 
     }
 }
