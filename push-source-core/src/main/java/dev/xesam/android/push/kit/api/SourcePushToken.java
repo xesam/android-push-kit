@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
  * Created by xesamguo@gmail.com on 17-4-17.
  */
 
-public class PushToken extends PushRaw implements Parcelable {
+public class SourcePushToken extends SourcePushRaw implements Parcelable {
 
     private String mToken;
 
-    public PushToken(String token) {
+    public SourcePushToken(String token) {
         this.mToken = token;
     }
 
     @Override
     public int getType() {
-        return PushRaw.TYPE_TOKEN;
+        return SourcePushRaw.TYPE_TOKEN;
     }
 
     @NonNull
@@ -36,19 +36,19 @@ public class PushToken extends PushRaw implements Parcelable {
         dest.writeString(this.mToken);
     }
 
-    protected PushToken(Parcel in) {
+    protected SourcePushToken(Parcel in) {
         this.mToken = in.readString();
     }
 
-    public static final Parcelable.Creator<PushToken> CREATOR = new Parcelable.Creator<PushToken>() {
+    public static final Parcelable.Creator<SourcePushToken> CREATOR = new Parcelable.Creator<SourcePushToken>() {
         @Override
-        public PushToken createFromParcel(Parcel source) {
-            return new PushToken(source);
+        public SourcePushToken createFromParcel(Parcel source) {
+            return new SourcePushToken(source);
         }
 
         @Override
-        public PushToken[] newArray(int size) {
-            return new PushToken[size];
+        public SourcePushToken[] newArray(int size) {
+            return new SourcePushToken[size];
         }
     };
 }

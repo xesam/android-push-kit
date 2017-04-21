@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import dev.xesam.android.push.kit.api.IPushManager;
 import dev.xesam.android.push.kit.api.PushHelper;
 import dev.xesam.android.push.kit.api.PushSource;
-import dev.xesam.android.push.kit.api.PushToken;
+import dev.xesam.android.push.kit.api.SourcePushToken;
 
 /**
  * 友盟推送管理
@@ -59,7 +59,7 @@ public final class SdkPushManager implements IPushManager {
             @Override
             public void onSuccess(String deviceToken) {
                 //这个回调基本上只会调用一次，所以很不可靠
-                PushToken token = new PushToken(deviceToken);
+                SourcePushToken token = new SourcePushToken(deviceToken);
                 PushHelper.broadcastSdk(mContext, token);
             }
 
@@ -71,7 +71,7 @@ public final class SdkPushManager implements IPushManager {
         //再次调用，避免失败
         String deviceToken = mPushAgent.getRegistrationId();
         if (!TextUtils.isEmpty(deviceToken)) {
-            PushToken token = new PushToken(deviceToken);
+            SourcePushToken token = new SourcePushToken(deviceToken);
             PushHelper.broadcastSdk(mContext, token);
         }
 

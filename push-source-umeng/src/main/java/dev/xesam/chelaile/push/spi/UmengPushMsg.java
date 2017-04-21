@@ -8,13 +8,13 @@ import com.umeng.message.entity.UMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import dev.xesam.android.push.kit.api.PushMsg;
+import dev.xesam.android.push.kit.api.SourcePushMsg;
 
 /**
  * Created by xe on 16-10-24.
  */
 
-public class UmengPushMsg extends PushMsg {
+public class UmengPushMsg extends SourcePushMsg {
     String mMsg;
 
     UmengPushMsg(UMessage uMessage) {

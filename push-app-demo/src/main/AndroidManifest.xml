@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <receiver
-            android:name=".push.SdkPushReceiverImpl"
+            android:name=".push.SourcePushReceiverImpl"
             android:exported="true">
             <intent-filter>
                 <action android:name="dev.xesam.push.action.sdk_payload.dev.xesam.android.push.kit" />

@@ -28,22 +28,22 @@ public final class PushHelper {
         return INTENT_ACTION_PUSH_SDK_PAYLOAD_PREFIX + packageName;
     }
 
-    public static void broadcastSdk(Context context, PushRaw raw) {
+    public static void broadcastSdk(Context context, SourcePushRaw raw) {
         broadcastSdk(context, raw, null);
     }
 
-    public static void broadcastSdk(Context context, PushRaw raw, @Nullable String packageName) {
+    public static void broadcastSdk(Context context, SourcePushRaw raw, @Nullable String packageName) {
         String action = getDefaultSdkAction(context, packageName);
         Intent intent = new Intent(action);
         intent.putExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD, raw);
         context.sendBroadcast(intent);
     }
 
-    public static void checkReceiveSdk(Context context, Intent intent, CoreSdkPushReceiver receiver) {
+    public static void checkReceiveSdk(Context context, Intent intent, CoreSourcePushReceiver receiver) {
         String expectAction = getDefaultSdkAction(context, null);
         final String action = intent.getAction();
         if (expectAction.equals(action)) {
-            PushRaw raw = intent.getParcelableExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD);
+            SourcePushRaw raw = intent.getParcelableExtra(INTENT_EXTRA_PUSH_SDK_PAYLOAD);
             if (receiver.checkPushRaw(context, raw)) {
                 receiver.onReceive(context, raw);
             } else {

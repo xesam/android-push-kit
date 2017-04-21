@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
  * Created by xe on 16-10-27.
  */
 
-public class SimplePushMsg extends PushMsg {
+public class SimplePushMsg extends SourcePushMsg {
     private String mMsg;
 
     public SimplePushMsg(String mMsg) {
