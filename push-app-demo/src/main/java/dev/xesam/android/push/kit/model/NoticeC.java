@@ -10,9 +10,22 @@ import dev.xesam.android.push.kit.api.AppPushMsg;
  */
 
 public class NoticeC implements AppPushMsg, Parcelable {
+    private String name;
+
     @Override
     public int getType() {
         return BizType.TYPE_C;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public NoticeC() {
     }
 
     @Override
@@ -22,12 +35,11 @@ public class NoticeC implements AppPushMsg, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-    }
-
-    public NoticeC() {
+        dest.writeString(this.name);
     }
 
     protected NoticeC(Parcel in) {
+        this.name = in.readString();
     }
 
     public static final Creator<NoticeC> CREATOR = new Creator<NoticeC>() {

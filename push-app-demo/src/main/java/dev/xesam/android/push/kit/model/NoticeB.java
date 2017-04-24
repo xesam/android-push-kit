@@ -9,9 +9,22 @@ import dev.xesam.android.push.kit.api.AppPushMsg;
  */
 
 public class NoticeB implements AppPushMsg {
+    private String name;
+
     @Override
     public int getType() {
         return BizType.TYPE_B;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public NoticeB() {
     }
 
     @Override
@@ -21,12 +34,11 @@ public class NoticeB implements AppPushMsg {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-    }
-
-    public NoticeB() {
+        dest.writeString(this.name);
     }
 
     protected NoticeB(Parcel in) {
+        this.name = in.readString();
     }
 
     public static final Creator<NoticeB> CREATOR = new Creator<NoticeB>() {
