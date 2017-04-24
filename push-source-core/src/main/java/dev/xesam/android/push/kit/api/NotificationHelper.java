@@ -4,11 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 
 /**
- * 通知栏动作分发器
- * Created by xe on 16-11-5.
+ * Created by xesamguo@gmail.com on 17-4-24.
  */
 
-public class CoreNotificationDispatcher {
+public class NotificationHelper {
 
     public static final int ACTION_CLICK = 0;
     public static final int ACTION_DISMISS = 1;

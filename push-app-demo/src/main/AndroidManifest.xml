@@ -20,6 +20,11 @@
                 <action android:name="APP_RECEIVER_ACTION" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".push.NotificationReceiverImpl">
+            <intent-filter>
+                <action android:name="NOTIFICATION_RECEIVER_ACTION" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".ContentActivity" />
         <activity android:name=".StartActivity">
