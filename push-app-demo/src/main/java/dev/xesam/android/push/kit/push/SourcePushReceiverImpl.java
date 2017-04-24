@@ -68,16 +68,19 @@ public class SourcePushReceiverImpl extends AbsSourcePushReceiver {
                     String name = jsonName.getAsString();
                     NoticeA notice = new NoticeA();
                     notice.setName(name);
+                    return notice;
                 } else if (type.equals("b")) {
                     JsonElement jsonName = jsonObject.get("name");
                     String name = jsonName.getAsString();
                     NoticeB notice = new NoticeB();
                     notice.setName(name);
+                    return notice;
                 } else if (type.equals("c")) {
                     JsonElement jsonName = jsonObject.get("name");
                     String name = jsonName.getAsString();
                     NoticeC notice = new NoticeC();
                     notice.setName(name);
+                    return notice;
                 }
                 return null;
             }

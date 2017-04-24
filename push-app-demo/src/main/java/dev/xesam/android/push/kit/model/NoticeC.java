@@ -25,6 +25,13 @@ public class NoticeC implements AppPushMsg, Parcelable {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "NoticeC{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public NoticeC() {
     }
 

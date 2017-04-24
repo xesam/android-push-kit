@@ -25,6 +25,13 @@ public class NoticeA implements AppPushMsg {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "NoticeA{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public NoticeA() {
     }
 
