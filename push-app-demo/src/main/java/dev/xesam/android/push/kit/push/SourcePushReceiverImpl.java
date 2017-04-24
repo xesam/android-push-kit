@@ -2,6 +2,7 @@ package dev.xesam.android.push.kit.push;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import dev.xesam.android.push.kit.api.SourcePushMsg;
 import dev.xesam.android.push.kit.api.SourcePushRaw;
@@ -31,9 +32,8 @@ public class SourcePushReceiverImpl extends AbsSourcePushReceiver {
     }
 
     private void onReceiveToken(Context context, SourcePushToken token) {
-        // TODO: 17-4-18
         Log.w(TAG, token.getToken());
-//        CoreAppPushReceiver.broadcastAppPushMsg(context, DemoConstant.APP_RECEIVER_ACTION, token);
+        Toast.makeText(context, "SourcePushToken = " + token.getToken(), Toast.LENGTH_SHORT).show();
     }
 
     private void onReceiveMsg(Context context, SourcePushMsg msg) {
