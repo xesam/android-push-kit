@@ -11,7 +11,7 @@ import dev.xesam.android.push.kit.api.AppPushMsg;
 public class NoticeB implements AppPushMsg {
     @Override
     public int getType() {
-        return BizType.TYPE_A;
+        return BizType.TYPE_B;
     }
 
     @Override
