@@ -34,7 +34,7 @@ public class ContentActivity extends AppCompatActivity {
                 vContent.setText("TYPE_C:" + data.toString());
                 return true;
             }
-            return true;
+            return false;
         }
     };
 
