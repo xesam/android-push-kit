@@ -1,6 +1,7 @@
 package dev.xesam.android.push.kit.push;
 
 import android.content.Context;
+import android.util.Log;
 
 import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreNotificationReceiver;
@@ -10,9 +11,11 @@ import dev.xesam.android.push.kit.api.CoreNotificationReceiver;
  */
 
 public class NotificationReceiverImpl extends CoreNotificationReceiver {
+    public static final String TAG = "NotifyReceiverImpl";
+
     @Override
     protected void trackMsgDismissed(Context context, AppPushMsg appPushMsg) {
-
+        Log.w(TAG, "trackMsgDismissed");
     }
 
     @Override
@@ -27,6 +30,6 @@ public class NotificationReceiverImpl extends CoreNotificationReceiver {
 
     @Override
     protected void onActionClick(Context context, AppPushMsg appPushMsg, boolean hasRunningActivity) {
-
+        Log.w(TAG, "onActionClick");
     }
 }

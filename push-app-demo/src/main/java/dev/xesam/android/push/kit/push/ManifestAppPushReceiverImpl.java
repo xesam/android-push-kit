@@ -1,6 +1,8 @@
 package dev.xesam.android.push.kit.push;
 
 import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -10,6 +12,7 @@ import android.util.Log;
 import dev.xesam.android.push.kit.R;
 import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
+import dev.xesam.android.push.kit.api.NotificationHelper;
 import dev.xesam.android.push.kit.model.BizType;
 
 /**
@@ -35,22 +38,51 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
         AppPushMsg data = CoreAppPushReceiver.getAppPushMsg(intent);
         if (data.getType() == BizType.TYPE_A) {
             Log.w(TAG, "TYPE_A:" + data.toString());
+            Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
+            Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            postNotification(
+                    context,
+                    PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
+                    PendingIntent.getBroadcast(context, 2, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            );
         } else if (data.getType() == BizType.TYPE_B) {
             Log.w(TAG, "TYPE_B:" + data.toString());
+            Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
+            Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            postNotification(
+                    context,
+                    PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
+                    PendingIntent.getBroadcast(context, 2, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            );
         } else if (data.getType() == BizType.TYPE_C) {
             Log.w(TAG, "TYPE_C:" + data.toString());
+            Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
+            Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
+            NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            postNotification(
+                    context,
+                    PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
+                    PendingIntent.getBroadcast(context, 2, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            );
         }
         return true;
     }
 
-    private void postNotification(Context context) {
+    private void postNotification(Context context, PendingIntent clickIntent, PendingIntent deleteIntent) {
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentTitle("this is title")
                 .setContentText("this is content")
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setContentIntent(null)
-                .setDeleteIntent(null)
+                .setContentIntent(clickIntent)
+                .setDeleteIntent(deleteIntent)
                 .build();
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(notification.hashCode(), notification);
 
     }
 }
