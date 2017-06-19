@@ -1,15 +1,16 @@
 package dev.xesam.android.push.kit.push;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
+
+import dev.xesam.android.push.kit.api.CorePushActivity;
 
 /**
  * Created by xesamguo@gmail.com on 17-6-19.
  */
 
-public class PullUpActivity extends Activity {
+public class PushActivity extends CorePushActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

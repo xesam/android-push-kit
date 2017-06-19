@@ -34,7 +34,7 @@ public class NotificationReceiverImpl extends CoreNotificationReceiver {
     protected void onActionClick(Context context, AppPushMsg appPushMsg, boolean hasRunningActivity) {
         Log.w(TAG, "onActionClick");
         if (hasRunningActivity) {
-            context.startActivity(new Intent(context, PullUpActivity.class));
+            context.startActivity(new Intent(context, PushActivity.class));
         } else {
             context.startActivity(new Intent(context, StartActivity.class));
         }

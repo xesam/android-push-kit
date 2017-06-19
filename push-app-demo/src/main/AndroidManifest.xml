@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContentActivity" />
-        <activity android:name=".push.PullUpActivity" />
+        <activity android:name=".push.PushActivity" />
     </application>
 
 </manifest>
