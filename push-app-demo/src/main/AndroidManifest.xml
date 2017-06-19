@@ -26,7 +26,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ContentActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ContentActivity" />
+        <activity android:name=".push.PullUpActivity" />
     </application>
 
 </manifest>
