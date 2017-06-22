@@ -1,9 +1,11 @@
 package dev.xesam.android.push.kit.push;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import dev.xesam.android.push.kit.DemoApp;
 import dev.xesam.android.push.kit.StartActivity;
 import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreNotificationReceiver;
@@ -22,7 +24,7 @@ public class NotificationReceiverImpl extends CoreNotificationReceiver {
 
     @Override
     protected boolean hasRunningActivity(Context context) {
-        return true;
+        return DemoApp.getThis().hasRunningActivity();
     }
 
     @Override
@@ -33,10 +35,15 @@ public class NotificationReceiverImpl extends CoreNotificationReceiver {
     @Override
     protected void onActionClick(Context context, AppPushMsg appPushMsg, boolean hasRunningActivity) {
         Log.w(TAG, "onActionClick");
+        Intent intent;
         if (hasRunningActivity) {
-            context.startActivity(new Intent(context, PushActivity.class));
+            intent = new Intent(context, PushActivity.class);
         } else {
-            context.startActivity(new Intent(context, StartActivity.class));
+            intent = new Intent(context, StartActivity.class);
         }
+        if (!(context instanceof Activity)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
     }
 }
