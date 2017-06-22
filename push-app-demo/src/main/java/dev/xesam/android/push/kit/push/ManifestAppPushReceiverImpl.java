@@ -87,6 +87,7 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentIntent(clickIntent)
                 .setDeleteIntent(deleteIntent)
+                .setAutoCancel(true)
                 .build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(notification.hashCode(), notification);
