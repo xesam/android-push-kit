@@ -25,26 +25,10 @@ task clean(type: Delete) {
 ext {
 
     debug_placeholders = [
-            MANIFEST_APPLICATION_ID      : "com.ygkj.chelaile.alpha",
-
-            MANIFEST_UMENG_KEY           : "51f8b4a956240b0de90028de",
-            MANIFEST_UMENG_CHANNEL_VALUE : "dev_alpha",
-            MANIFEST_UMENG_MESSAGE_SECRET: "1cd8a0a267a96f4f3a671d9c35f7fa86",
-
-            MANIFEST_GETUI_APP_ID        : "LiH35ZPXO88gBk5vSrR001",
-            MANIFEST_GETUI_APP_KEY       : "67ikK7Ir4T81Uv58hIgdlA",
-            MANIFEST_GETUI_APP_SECRET    : "glRocLIzDZALl2XfDVlnE2",
+            MANIFEST_APPLICATION_ID      : "test",
     ]
 
     release_placeholders = [
-            MANIFEST_APPLICATION_ID      : "com.ygkj.chelaile.standard",
-
-            MANIFEST_UMENG_KEY           : "53870cb556240be6e4017771",
-            MANIFEST_UMENG_CHANNEL_VALUE : "dev_release",
-            MANIFEST_UMENG_MESSAGE_SECRET: "5cc69fd8aa13f1d8e5e82579df5f67ee",
-
-            MANIFEST_GETUI_APP_ID        : "9nPwXt6Z799FWnwwysrwi9",
-            MANIFEST_GETUI_APP_KEY       : "Kgu7FAtuaP77ikNsQEF826",
-            MANIFEST_GETUI_APP_SECRET    : "3BlbmOCp0M7ladG3ED3Bx5",
+            MANIFEST_APPLICATION_ID      : "test",
     ]
 }
