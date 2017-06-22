@@ -11,6 +11,7 @@ import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
 import dev.xesam.android.push.kit.model.BizType;
 import dev.xesam.android.push.kit.push.AppPushReceiverImpl;
+import dev.xesam.android.push.kit.push.NaviHelper;
 
 public class ContentActivity extends AppCompatActivity {
 
@@ -44,6 +45,11 @@ public class ContentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
         vContent = (TextView) findViewById(R.id.content);
         appPushReceiver.register(this);
+
+        AppPushMsg msg = NaviHelper.getNaviData(getIntent());
+        if (msg != null) {
+            vContent.setText(msg.toString());
+        }
     }
 
     @Override

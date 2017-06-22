@@ -41,6 +41,7 @@ public class NotificationReceiverImpl extends CoreNotificationReceiver {
         } else {
             intent = new Intent(context, StartActivity.class);
         }
+        NaviHelper.putNaviData(intent, appPushMsg);
         if (!(context instanceof Activity)) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
