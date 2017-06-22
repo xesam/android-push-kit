@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import dev.xesam.android.push.kit.push.NaviHelper;
-
 public class StartActivity extends AppCompatActivity {
 
     @Override

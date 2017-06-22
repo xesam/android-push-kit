@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import dev.xesam.android.push.kit.DemoApp;
+import dev.xesam.android.push.kit.NaviHelper;
 import dev.xesam.android.push.kit.StartActivity;
 import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreNotificationReceiver;

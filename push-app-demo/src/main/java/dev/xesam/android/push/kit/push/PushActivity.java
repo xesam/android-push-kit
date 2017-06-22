@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
+import dev.xesam.android.push.kit.NaviHelper;
 import dev.xesam.android.push.kit.api.CorePushActivity;
 
 /**

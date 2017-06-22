@@ -1,9 +1,8 @@
-package dev.xesam.android.push.kit.push;
+package dev.xesam.android.push.kit;
 
 import android.app.Activity;
 import android.content.Intent;
 
-import dev.xesam.android.push.kit.ContentActivity;
 import dev.xesam.android.push.kit.api.AppPushMsg;
 
 /**
