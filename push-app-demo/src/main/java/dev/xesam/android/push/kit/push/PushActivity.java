@@ -15,6 +15,7 @@ public class PushActivity extends CorePushActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "pull up", Toast.LENGTH_SHORT).show();
+        new NaviHelper().start(this);
         finish();
     }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import dev.xesam.android.push.kit.push.NaviHelper;
+
 public class StartActivity extends AppCompatActivity {
 
     @Override
@@ -17,5 +19,6 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(new Intent(StartActivity.this, ContentActivity.class));
             }
         });
+        new NaviHelper().start(this);
     }
 }
