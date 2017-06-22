@@ -12,6 +12,7 @@ import android.util.Log;
 import dev.xesam.android.push.kit.R;
 import dev.xesam.android.push.kit.api.AppPushMsg;
 import dev.xesam.android.push.kit.api.CoreAppPushReceiver;
+import dev.xesam.android.push.kit.api.CoreNotificationReceiver;
 import dev.xesam.android.push.kit.api.NotificationHelper;
 import dev.xesam.android.push.kit.model.BizType;
 
@@ -35,35 +36,41 @@ public class ManifestAppPushReceiverImpl extends CoreAppPushReceiver {
     @Override
     protected boolean onHandleReceive(Context context, Intent intent) {
         Log.w(TAG, "onHandleReceive");
-        AppPushMsg data = CoreAppPushReceiver.getAppPushMsg(intent);
-        if (data.getType() == BizType.TYPE_A) {
-            Log.w(TAG, "TYPE_A:" + data.toString());
+        AppPushMsg msg = CoreAppPushReceiver.getAppPushMsg(intent);
+        if (msg.getType() == BizType.TYPE_A) {
+            Log.w(TAG, "TYPE_A:" + msg.toString());
             Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
             Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            CoreNotificationReceiver.putMsg(clickIntent, msg);
+            CoreNotificationReceiver.putMsg(deleteIntent, msg);
             postNotification(
                     context,
                     PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
                     PendingIntent.getBroadcast(context, 2, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT)
             );
-        } else if (data.getType() == BizType.TYPE_B) {
-            Log.w(TAG, "TYPE_B:" + data.toString());
+        } else if (msg.getType() == BizType.TYPE_B) {
+            Log.w(TAG, "TYPE_B:" + msg.toString());
             Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
             Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            CoreNotificationReceiver.putMsg(clickIntent, msg);
+            CoreNotificationReceiver.putMsg(deleteIntent, msg);
             postNotification(
                     context,
                     PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
                     PendingIntent.getBroadcast(context, 2, deleteIntent, PendingIntent.FLAG_UPDATE_CURRENT)
             );
-        } else if (data.getType() == BizType.TYPE_C) {
-            Log.w(TAG, "TYPE_C:" + data.toString());
+        } else if (msg.getType() == BizType.TYPE_C) {
+            Log.w(TAG, "TYPE_C:" + msg.toString());
             Intent clickIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(clickIntent, NotificationHelper.ACTION_CLICK);
             Intent deleteIntent = new Intent(context, NotificationReceiverImpl.class);
             NotificationHelper.setActionCode(deleteIntent, NotificationHelper.ACTION_DISMISS);
+            CoreNotificationReceiver.putMsg(clickIntent, msg);
+            CoreNotificationReceiver.putMsg(deleteIntent, msg);
             postNotification(
                     context,
                     PendingIntent.getBroadcast(context, 1, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT),
