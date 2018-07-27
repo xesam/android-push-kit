@@ -1,1 +1,1 @@
-include ':push-app-demo', ':push-source-core', ':push-source-umeng', ':push-source-getui', ':push-source-mock', ':push-app-mock', ':push-core'
+include ':push-app-demo', ':push-source-core', ':push-source-umeng', ':push-source-getui', ':push-source-mock', ':push-app-mock', ':push-core', ':push-vendor-a', ':push-vendor-b'

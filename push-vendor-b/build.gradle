@@ -1,0 +1,5 @@
+apply from: '../build-lib.gradle'
+
+dependencies {
+    implementation project(':push-core')
+}
