@@ -1,11 +1,10 @@
 package io.github.xesam.android.push;
 
 
-import android.content.Context;
+import android.content.BroadcastReceiver;
 
 /**
  * 推送通道消息接收
  */
-public interface PushAgentReceiver {
-    void onReceive(Context context, String message);
+public abstract class PushAgentReceiver extends BroadcastReceiver implements PushAgentConsumer {
 }
